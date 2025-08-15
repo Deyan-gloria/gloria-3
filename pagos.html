@@ -30,6 +30,7 @@ button { margin: 2px; padding: 5px 10px; cursor: pointer; }
     <a href="vehiculos.html">Vehículos</a>
     <a href="pagos.html">Pagos</a>
     <a href="contacto.html">Contacto</a>
+    <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
 </nav>
 <main>
     <h2>Pagos</h2>
@@ -37,7 +38,6 @@ button { margin: 2px; padding: 5px 10px; cursor: pointer; }
         <label>Apartamento: <input type="text" id="filtroApto" onkeyup="buscar()"></label>
         <label>Torre: <input type="text" id="filtroTorre" onkeyup="buscar()"></label>
         <label>Cédula: <input type="text" id="filtroCedula" onkeyup="buscar()"></label>
-        <label>Placa: <input type="text" id="filtroPlaca" onkeyup="buscar()"></label>
     </div>
     <button>Registrar Pago</button>
     <table>
@@ -45,3 +45,95 @@ button { margin: 2px; padding: 5px 10px; cursor: pointer; }
             <tr>
                 <th>Apartamento</th>
                 <th>Torre</th>
+                <th>Cédula</th>
+                <th>Propietario</th>
+                <th>Mes</th>
+                <th>Valor</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>101</td>
+                <td>1</td>
+                <td>12345678</td>
+                <td>Juan Pérez</td>
+                <td>Julio</td>
+                <td>$150.000</td>
+                <td>Pagado</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Eliminar</button>
+                </td>
+            </tr>
+            <tr>
+                <td>202</td>
+                <td>3</td>
+                <td>98765432</td>
+                <td>María López</td>
+                <td>Julio</td>
+                <td>$150.000</td>
+                <td>Pendiente</td>
+                <td>
+                    <button>Editar</button>
+                    <button>Eliminar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+<footer>
+    <p>&copy; 2025 GLORIA III - Administración</p>
+</footer>
+
+<script>
+// Verificar sesión
+let rol = localStorage.getItem('rolUsuario');
+if (!rol) {
+    window.location.href = 'login.html';
+}
+
+// Ocultar botones si es Vigilancia
+window.onload = function() {
+    if (rol === 'Vigilancia') {
+        document.querySelectorAll('button').forEach(btn => {
+            if (btn.textContent.includes('Registrar Pago') || 
+                btn.textContent.includes('Editar') || 
+                btn.textContent.includes('Eliminar')) {
+                btn.style.display = 'none';
+            }
+        });
+    }
+}
+
+// Cerrar sesión
+function cerrarSesion() {
+    localStorage.removeItem('rolUsuario');
+    window.location.href = 'login.html';
+}
+
+// Buscador
+function buscar() {
+    let filtroApto = document.getElementById('filtroApto').value.toLowerCase();
+    let filtroTorre = document.getElementById('filtroTorre').value.toLowerCase();
+    let filtroCedula = document.getElementById('filtroCedula').value.toLowerCase();
+    let filas = document.querySelectorAll('tbody tr');
+
+    filas.forEach(fila => {
+        let apto = fila.cells[0].textContent.toLowerCase();
+        let torre = fila.cells[1].textContent.toLowerCase();
+        let cedula = fila.cells[2].textContent.toLowerCase();
+
+        if ((filtroApto && !apto.includes(filtroApto)) ||
+            (filtroTorre && !torre.includes(filtroTorre)) ||
+            (filtroCedula && !cedula.includes(filtroCedula))) {
+            fila.style.display = 'none';
+        } else {
+            fila.style.display = '';
+        }
+    });
+}
+</script>
+</body>
+</html>
