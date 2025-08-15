@@ -38,6 +38,7 @@ button { margin: 2px; padding: 5px 10px; cursor: pointer; }
         <label>Apartamento: <input type="text" id="filtroApto" onkeyup="buscar()"></label>
         <label>Torre: <input type="text" id="filtroTorre" onkeyup="buscar()"></label>
         <label>Cédula: <input type="text" id="filtroCedula" onkeyup="buscar()"></label>
+        <label>Nombre: <input type="text" id="filtroNombre" onkeyup="buscar()"></label>
         <label>Placa: <input type="text" id="filtroPlaca" onkeyup="buscar()"></label>
     </div>
     <button>Agregar Propietario</button>
@@ -113,6 +114,7 @@ function buscar() {
     let filtroApto = document.getElementById('filtroApto').value.toLowerCase();
     let filtroTorre = document.getElementById('filtroTorre').value.toLowerCase();
     let filtroCedula = document.getElementById('filtroCedula').value.toLowerCase();
+    let filtroNombre = document.getElementById('filtroNombre').value.toLowerCase();
     let filtroPlaca = document.getElementById('filtroPlaca').value.toLowerCase();
     let filas = document.querySelectorAll('tbody tr');
 
@@ -120,11 +122,13 @@ function buscar() {
         let apto = fila.cells[0].textContent.toLowerCase();
         let torre = fila.cells[1].textContent.toLowerCase();
         let cedula = fila.cells[2].textContent.toLowerCase();
+        let nombre = fila.cells[3].textContent.toLowerCase();
         let placa = fila.cells[4].textContent.toLowerCase();
 
         if ((filtroApto && !apto.includes(filtroApto)) ||
             (filtroTorre && !torre.includes(filtroTorre)) ||
             (filtroCedula && !cedula.includes(filtroCedula)) ||
+            (filtroNombre && !nombre.includes(filtroNombre)) ||
             (filtroPlaca && !placa.includes(filtroPlaca))) {
             fila.style.display = 'none';
         } else {
