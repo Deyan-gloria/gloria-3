@@ -1,94 +1,48 @@
-/* Estilos generales */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #f7f4ef; /* Beige claro */
-    color: #333;
-}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conjunto Residencial GLORIA III</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-/* Menú */
-header {
-    background-color: #00334d; /* Azul profundo */
-    padding: 10px 0;
-}
+    <!-- Encabezado -->
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="Conjunto Residencial GLORIA III">
+            <h1>GLORIA III</h1>
+        </div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Propietarios</a>
+            <a href="#">Vehículos</a>
+            <a href="#">Pagos</a>
+            <a href="#">Contacto</a>
+            <a href="#">Login</a>
+        </nav>
+    </header>
 
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-}
+    <!-- Sección bienvenida -->
+    <section class="bienvenida">
+        <h2>Bienvenido a GLORIA III</h2>
+        <p>Gestión de propietarios, arrendatarios y vehículos</p>
+    </section>
 
-nav ul li {
-    margin: 0 15px;
-}
+    <!-- Buscador -->
+    <section class="buscador">
+        <h3>Buscar</h3>
+        <form>
+            <input type="text" placeholder="Buscar por apartamento, torre o placa">
+            <button type="submit">Buscar</button>
+        </form>
+    </section>
 
-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
+    <!-- Pie de página -->
+    <footer>
+        &copy; 2025 GLORIA III - Administración
+    </footer>
 
-nav ul li a:hover {
-    text-decoration: underline;
-}
-
-/* Hero (imagen principal) */
-.hero {
-    position: relative;
-    height: 300px;
-    overflow: hidden;
-}
-
-.hero img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    filter: brightness(70%);
-}
-
-.hero-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.4);
-    padding: 15px 30px;
-    border-radius: 5px;
-}
-
-/* Buscador */
-.buscador {
-    text-align: center;
-    padding: 20px;
-}
-
-.buscador input {
-    padding: 8px;
-    width: 250px;
-    margin-right: 10px;
-}
-
-.buscador button {
-    padding: 8px 15px;
-    background-color: #e6a700; /* Amarillo mostaza */
-    border: none;
-    color: white;
-    cursor: pointer;
-}
-
-.buscador button:hover {
-    background-color: #cc9000;
-}
-
-/* Footer */
-footer {
-    background-color: #00334d;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
-}
+</body>
+</html>
