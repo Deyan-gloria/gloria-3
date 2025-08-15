@@ -3,66 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GLORIA III - Inicio</title>
+    <title>Conjunto Residencial GLORIA III</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        .hero {
-            position: relative;
-            text-align: center;
-            color: white;
-        }
-        .hero img {
-            width: 100%;
-            height: auto;
-            max-height: 400px;
-            object-fit: cover;
-        }
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0,0,0,0.5);
-            padding: 20px;
-            border-radius: 10px;
-        }
-        .hero-text h1 {
-            font-size: 2.5em;
-            margin: 0;
-        }
-    </style>
 </head>
 <body>
+
+    <!-- Encabezado -->
     <header>
-        <h1>Conjunto Residencial GLORIA III</h1>
+        <div class="logo">
+            <img src="img/logo.png" alt="Conjunto Residencial GLORIA III">
+            <h1>GLORIA III</h1>
+        </div>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="propietarios.html">Propietarios</a>
-            <a href="vehiculos.html">Vehículos</a>
-            <a href="pagos.html">Pagos</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="login.html">Login</a>
+            <a href="#">Inicio</a>
+            <a href="#">Propietarios</a>
+            <a href="#">Vehículos</a>
+            <a href="#">Pagos</a>
+            <a href="#">Contacto</a>
+            <a href="#">Login</a>
         </nav>
     </header>
 
-    <!-- Sección imagen principal -->
-    <div class="hero">
-        <img src="img/gloria3.jpg" alt="Conjunto Residencial GLORIA III">
-        <div class="hero-text">
-            <h1>Bienvenido a GLORIA III</h1>
-            <p>Gestión de propietarios, arrendatarios y vehículos</p>
-        </div>
-    </div>
-
-    <!-- Buscador -->
-    <section class="search">
-        <h2>Buscar</h2>
-        <input type="text" placeholder="Buscar por apartamento, torre, cédula, placa, nombre">
-        <button>Buscar</button>
+    <!-- Sección bienvenida -->
+    <section class="bienvenida">
+        <h2>Bienvenido a GLORIA III</h2>
+        <p>Gestión de propietarios, arrendatarios y vehículos</p>
     </section>
 
+    <!-- Buscador -->
+    <section class="buscador">
+        <h3>Buscar</h3>
+        <form>
+            <input type="text" placeholder="Buscar por apartamento, torre o placa">
+            <button type="submit">Buscar</button>
+        </form>
+    </section>
+
+    <!-- Pie de página -->
     <footer>
-        <p>© 2025 GLORIA III - Administración</p>
+        &copy; 2025 GLORIA III - Administración
     </footer>
+
 </body>
 </html>
