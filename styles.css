@@ -1,48 +1,144 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conjunto Residencial GLORIA III</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <!-- Encabezado -->
-    <header>
-        <div class="logo">
-            <img src="img/logo.png" alt="Conjunto Residencial GLORIA III">
-            <h1>GLORIA III</h1>
-        </div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Propietarios</a>
-            <a href="#">Vehículos</a>
-            <a href="#">Pagos</a>
-            <a href="#">Contacto</a>
-            <a href="#">Login</a>
-        </nav>
-    </header>
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f8f6;
+    color: #333;
+}
 
-    <!-- Sección bienvenida -->
-    <section class="bienvenida">
-        <h2>Bienvenido a GLORIA III</h2>
-        <p>Gestión de propietarios, arrendatarios y vehículos</p>
-    </section>
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 
-    <!-- Buscador -->
-    <section class="buscador">
-        <h3>Buscar</h3>
-        <form>
-            <input type="text" placeholder="Buscar por apartamento, torre o placa">
-            <button type="submit">Buscar</button>
-        </form>
-    </section>
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
 
-    <!-- Pie de página -->
-    <footer>
-        &copy; 2025 GLORIA III - Administración
-    </footer>
+/* Encabezado con degradado */
+header {
+    background: linear-gradient(90deg, #00354d, #005d80);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 5%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    animation: slideIn 0.8s ease-in-out;
+}
 
-</body>
-</html>
+header .logo {
+    display: flex;
+    align-items: center;
+}
+
+header .logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+header nav a:hover {
+    color: #ffcc00;
+}
+
+/* Sección bienvenida */
+.bienvenida {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(to bottom, #f1f1f1, #ffffff);
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.bienvenida h2 {
+    font-size: 2.5rem;
+    color: #00354d;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.bienvenida p {
+    font-size: 1.2rem;
+    color: #555;
+    animation: fadeIn 1.4s ease-in-out;
+}
+
+/* Buscador */
+.buscador {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1.6s ease-in-out;
+}
+
+.buscador form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.buscador input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 250px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.buscador input:focus {
+    border-color: #005d80;
+    box-shadow: 0 0 5px rgba(0,93,128,0.5);
+}
+
+.buscador button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background: linear-gradient(90deg, #00354d, #005d80);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.2s ease;
+}
+
+.buscador button:hover {
+    background: linear-gradient(90deg, #005d80, #0078a6);
+    transform: scale(1.05);
+}
+
+/* Pie de página */
+footer {
+    background: linear-gradient(90deg, #00354d, #005d80);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+    }
+    nav {
+        margin-top: 10px;
+    }
+}
