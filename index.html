@@ -5,32 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GLORIA III - Inicio</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .hero {
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .hero img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .hero-text h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+    </style>
 </head>
 <body>
-    <header class="main-header">
+    <header>
+        <h1>Conjunto Residencial GLORIA III</h1>
         <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="propietarios.html">Propietarios</a></li>
-                <li><a href="vehiculos.html">Vehículos</a></li>
-                <li><a href="pagos.html">Pagos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-                <li><a href="login.html">Login</a></li>
-            </ul>
+            <a href="index.html">Inicio</a>
+            <a href="propietarios.html">Propietarios</a>
+            <a href="vehiculos.html">Vehículos</a>
+            <a href="pagos.html">Pagos</a>
+            <a href="contacto.html">Contacto</a>
+            <a href="login.html">Login</a>
         </nav>
     </header>
 
-    <section class="hero">
-        <img src="gloria3.jpg" alt="Conjunto Residencial GLORIA III">
+    <!-- Sección imagen principal -->
+    <div class="hero">
+        <img src="img/gloria3.jpg" alt="Conjunto Residencial GLORIA III">
         <div class="hero-text">
             <h1>Bienvenido a GLORIA III</h1>
             <p>Gestión de propietarios, arrendatarios y vehículos</p>
         </div>
-    </section>
+    </div>
 
-    <section class="buscador">
+    <!-- Buscador -->
+    <section class="search">
         <h2>Buscar</h2>
-        <input type="text" placeholder="Buscar por apartamento, torre, cédula, placa, nombre...">
+        <input type="text" placeholder="Buscar por apartamento, torre, cédula, placa, nombre">
         <button>Buscar</button>
     </section>
 
