@@ -1,58 +1,148 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Propietarios - GLORIA III</title>
-    <link rel="stylesheet" href="styles.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propietarios - GLORIA III</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+header {
+    background-color: #004080;
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+}
+nav {
+    background-color: #0059b3;
+    padding: 0.5em;
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+nav a:hover {
+    text-decoration: underline;
+}
+main {
+    padding: 1em;
+    background-color: white;
+    margin: 1em auto;
+    max-width: 900px;
+    border-radius: 8px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1em;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+.search-box {
+    margin: 1em 0;
+    padding: 1em;
+    background: #e6f0ff;
+    border-radius: 8px;
+}
+footer {
+    background-color: #004080;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+    margin-top: 2em;
+}
+</style>
+
 </head>
 <body>
 <header>
     <h1>Conjunto Residencial GLORIA III</h1>
-    <nav>
-        <a href="index.html">Inicio</a>
-        <a href="propietarios.html">Propietarios</a>
-        <a href="vehiculos.html">Vehículos</a>
-        <a href="pagos.html">Pagos</a>
-        <a href="contacto.html">Contacto</a>
-    </nav>
+    <p>Control y gestión de propietarios, arrendatarios y vehículos</p>
 </header>
-
+<nav>
+    <a href="index.html">Inicio</a>
+    <a href="propietarios.html">Propietarios</a>
+    <a href="vehiculos.html">Vehículos</a>
+    <a href="pagos.html">Pagos</a>
+    <a href="contacto.html">Contacto</a>
+</nav>
 <main>
-    <h2>Listado de Propietarios</h2>
-    <table border="1" cellpadding="5">
-        <tr>
-            <th>Nombre</th>
-            <th>Apartamento</th>
-            <th>Torre</th>
-            <th>Teléfono</th>
-        </tr>
-        <tr>
-            <td>Juan Pérez</td>
-            <td>302</td>
-            <td>5</td>
-            <td>3001234567</td>
-        </tr>
-        <tr>
-            <td>María López</td>
-            <td>105</td>
-            <td>2</td>
-            <td>3109876543</td>
-        </tr>
+    <h2>Propietarios</h2>
+    <div class="search-box">
+        <label>Apartamento: <input type="text" id="filtroApto" onkeyup="buscar()"></label>
+        <label>Torre: <input type="text" id="filtroTorre" onkeyup="buscar()"></label>
+        <label>Cédula: <input type="text" id="filtroCedula" onkeyup="buscar()"></label>
+        <label>Placa: <input type="text" id="filtroPlaca" onkeyup="buscar()"></label>
+    </div>
+    <table>
+        <thead>
+            <tr>
+                <th>Apartamento</th>
+                <th>Torre</th>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>101</td>
+                <td>1</td>
+                <td>12345678</td>
+                <td>Juan Pérez</td>
+                <td>3001234567</td>
+            </tr>
+            <tr>
+                <td>202</td>
+                <td>3</td>
+                <td>98765432</td>
+                <td>María López</td>
+                <td>3109876543</td>
+            </tr>
+        </tbody>
     </table>
-
-    <h2>Agregar Nuevo Propietario</h2>
-    <form>
-        <label>Nombre: <input type="text" name="nombre"></label><br><br>
-        <label>Apartamento: <input type="text" name="apartamento"></label><br><br>
-        <label>Torre: <input type="text" name="torre"></label><br><br>
-        <label>Teléfono: <input type="text" name="telefono"></label><br><br>
-        <button type="submit">Agregar</button>
-    </form>
 </main>
-
 <footer>
-    <p>© 2025 GLORIA III - Administración</p>
+    <p>&copy; 2025 GLORIA III - Administración</p>
 </footer>
+
+<script>
+function buscar() {
+    let filtroApto = document.getElementById('filtroApto').value.toLowerCase();
+    let filtroTorre = document.getElementById('filtroTorre').value.toLowerCase();
+    let filtroCedula = document.getElementById('filtroCedula').value.toLowerCase();
+    let filtroPlaca = document.getElementById('filtroPlaca').value.toLowerCase();
+    let filas = document.querySelectorAll('tbody tr');
+
+    filas.forEach(fila => {
+        let apto = fila.cells[0].textContent.toLowerCase();
+        let torre = fila.cells[1].textContent.toLowerCase();
+        let cedula = fila.cells[2] ? fila.cells[2].textContent.toLowerCase() : '';
+        let placa = fila.cells[3] ? fila.cells[3].textContent.toLowerCase() : '';
+
+        if ((filtroApto && !apto.includes(filtroApto)) ||
+            (filtroTorre && !torre.includes(filtroTorre)) ||
+            (filtroCedula && !cedula.includes(filtroCedula)) ||
+            (filtroPlaca && !placa.includes(filtroPlaca))) {
+            fila.style.display = 'none';
+        } else {
+            fila.style.display = '';
+        }
+    });
+}
+</script>
+
 </body>
 </html>
