@@ -1,30 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Iniciar Sesión - GLORIA III</title>
-<style>
-body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; height: 100vh; }
-.container { background: white; padding: 2em; border-radius: 8px; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); text-align: center; }
-h1 { color: #004080; }
-button { margin: 10px; padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #0059b3; color: white; border: none; border-radius: 4px; }
-button:hover { background-color: #004080; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gloria III</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="container">
-    <h1>GLORIA III</h1>
-    <p>Seleccione su rol para iniciar sesión:</p>
-    <button onclick="login('Administrador')">Administrador</button>
-    <button onclick="login('Vigilancia')">Vigilancia</button>
-</div>
-
-<script>
-function login(rol) {
-    localStorage.setItem('rolUsuario', rol);
-    window.location.href = 'index.html';
-}
-</script>
+    <header>
+        <img src="assets/logo.png" alt="Logo Gloria III" class="logo">
+        <nav>
+            <a href="index.html"><img src="assets/icon-home.svg" class="icon"> Inicio</a>
+            <a href="propietarios.html"><img src="assets/icon-user.svg" class="icon"> Propietarios</a>
+            <a href="vehiculos.html"><img src="assets/icon-car.svg" class="icon"> Vehículos</a>
+            <a href="pagos.html"><img src="assets/icon-pay.svg" class="icon"> Pagos</a>
+            <a href="contacto.html"><img src="assets/icon-contact.svg" class="icon"> Contacto</a>
+            <a href="login.html"><img src="assets/icon-login.svg" class="icon"> Login</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Login</h1>
+        <p>Contenido de la página Login.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gloria III - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>

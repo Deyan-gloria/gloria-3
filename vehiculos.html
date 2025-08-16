@@ -1,141 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vehículos - GLORIA III</title>
-<style>
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-header { background-color: #004080; color: white; padding: 1em 0; text-align: center; }
-nav { background-color: #0059b3; padding: 0.5em; text-align: center; }
-nav a { color: white; margin: 0 10px; text-decoration: none; }
-nav a:hover { text-decoration: underline; }
-main { padding: 1em; background-color: white; margin: 1em auto; max-width: 900px; border-radius: 8px; }
-table { width: 100%; border-collapse: collapse; margin-top: 1em; }
-table, th, td { border: 1px solid #ddd; }
-th, td { padding: 8px; text-align: left; }
-.search-box { margin: 1em 0; padding: 1em; background: #e6f0ff; border-radius: 8px; }
-footer { background-color: #004080; color: white; text-align: center; padding: 1em 0; margin-top: 2em; }
-button { margin: 2px; padding: 5px 10px; cursor: pointer; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehiculos - Gloria III</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-    <h1>Conjunto Residencial GLORIA III</h1>
-    <p>Control y gestión de propietarios, arrendatarios y vehículos</p>
-</header>
-<nav>
-    <a href="index.html">Inicio</a>
-    <a href="propietarios.html">Propietarios</a>
-    <a href="vehiculos.html">Vehículos</a>
-    <a href="pagos.html">Pagos</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
-</nav>
-<main>
-    <h2>Vehículos</h2>
-    <div class="search-box">
-        <label>Apartamento: <input type="text" id="filtroApto" onkeyup="buscar()"></label>
-        <label>Torre: <input type="text" id="filtroTorre" onkeyup="buscar()"></label>
-        <label>Placa: <input type="text" id="filtroPlaca" onkeyup="buscar()"></label>
-        <label>Tipo: <input type="text" id="filtroTipo" onkeyup="buscar()"></label>
-        <label>Propietario: <input type="text" id="filtroNombre" onkeyup="buscar()"></label>
-    </div>
-    <button>Agregar Vehículo</button>
-    <table>
-        <thead>
-            <tr>
-                <th>Apartamento</th>
-                <th>Torre</th>
-                <th>Placa</th>
-                <th>Tipo</th>
-                <th>Propietario</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>101</td>
-                <td>1</td>
-                <td>ABC123</td>
-                <td>Automóvil</td>
-                <td>Juan Pérez</td>
-                <td>
-                    <button>Editar</button>
-                    <button>Eliminar</button>
-                </td>
-            </tr>
-            <tr>
-                <td>202</td>
-                <td>3</td>
-                <td>XYZ987</td>
-                <td>Moto</td>
-                <td>María López</td>
-                <td>
-                    <button>Editar</button>
-                    <button>Eliminar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</main>
-<footer>
-    <p>&copy; 2025 GLORIA III - Administración</p>
-</footer>
-
-<script>
-// Verificar sesión
-let rol = localStorage.getItem('rolUsuario');
-if (!rol) {
-    window.location.href = 'login.html';
-}
-
-// Ocultar botones si es Vigilancia
-window.onload = function() {
-    if (rol === 'Vigilancia') {
-        document.querySelectorAll('button').forEach(btn => {
-            if (btn.textContent.includes('Agregar') || 
-                btn.textContent.includes('Editar') || 
-                btn.textContent.includes('Eliminar')) {
-                btn.style.display = 'none';
-            }
-        });
-    }
-}
-
-// Cerrar sesión
-function cerrarSesion() {
-    localStorage.removeItem('rolUsuario');
-    window.location.href = 'login.html';
-}
-
-// Buscador
-function buscar() {
-    let filtroApto = document.getElementById('filtroApto').value.toLowerCase();
-    let filtroTorre = document.getElementById('filtroTorre').value.toLowerCase();
-    let filtroPlaca = document.getElementById('filtroPlaca').value.toLowerCase();
-    let filtroTipo = document.getElementById('filtroTipo').value.toLowerCase();
-    let filtroNombre = document.getElementById('filtroNombre').value.toLowerCase();
-    let filas = document.querySelectorAll('tbody tr');
-
-    filas.forEach(fila => {
-        let apto = fila.cells[0].textContent.toLowerCase();
-        let torre = fila.cells[1].textContent.toLowerCase();
-        let placa = fila.cells[2].textContent.toLowerCase();
-        let tipo = fila.cells[3].textContent.toLowerCase();
-        let nombre = fila.cells[4].textContent.toLowerCase();
-
-        if ((filtroApto && !apto.includes(filtroApto)) ||
-            (filtroTorre && !torre.includes(filtroTorre)) ||
-            (filtroPlaca && !placa.includes(filtroPlaca)) ||
-            (filtroTipo && !tipo.includes(filtroTipo)) ||
-            (filtroNombre && !nombre.includes(filtroNombre))) {
-            fila.style.display = 'none';
-        } else {
-            fila.style.display = '';
-        }
-    });
-}
-</script>
+    <header>
+        <img src="assets/logo.png" alt="Logo Gloria III" class="logo">
+        <nav>
+            <a href="index.html"><img src="assets/icon-home.svg" class="icon"> Inicio</a>
+            <a href="propietarios.html"><img src="assets/icon-user.svg" class="icon"> Propietarios</a>
+            <a href="vehiculos.html"><img src="assets/icon-car.svg" class="icon"> Vehículos</a>
+            <a href="pagos.html"><img src="assets/icon-pay.svg" class="icon"> Pagos</a>
+            <a href="contacto.html"><img src="assets/icon-contact.svg" class="icon"> Contacto</a>
+            <a href="login.html"><img src="assets/icon-login.svg" class="icon"> Login</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Vehiculos</h1>
+        <p>Contenido de la página Vehiculos.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gloria III - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>

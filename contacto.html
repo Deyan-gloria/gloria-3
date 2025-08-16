@@ -1,60 +1,29 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contacto - GLORIA III</title>
-<style>
-body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; }
-header { background-color: #004080; color: white; padding: 1em 0; text-align: center; }
-nav { background-color: #0059b3; padding: 0.5em; text-align: center; }
-nav a { color: white; margin: 0 10px; text-decoration: none; }
-nav a:hover { text-decoration: underline; }
-main { padding: 1em; background-color: white; margin: 1em auto; max-width: 900px; border-radius: 8px; }
-footer { background-color: #004080; color: white; text-align: center; padding: 1em 0; margin-top: 2em; }
-.contact-info { margin-top: 1em; padding: 1em; background: #e6f0ff; border-radius: 8px; }
-.contact-info p { margin: 8px 0; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Gloria III</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<header>
-    <h1>Conjunto Residencial GLORIA III</h1>
-    <p>Control y gestión de propietarios, arrendatarios y vehículos</p>
-</header>
-<nav>
-    <a href="index.html">Inicio</a>
-    <a href="propietarios.html">Propietarios</a>
-    <a href="vehiculos.html">Vehículos</a>
-    <a href="pagos.html">Pagos</a>
-    <a href="contacto.html">Contacto</a>
-    <a href="#" onclick="cerrarSesion()">Cerrar Sesión</a>
-</nav>
-<main>
-    <h2>Contacto</h2>
-    <p>Si tiene alguna duda, inquietud o solicitud, puede comunicarse con la administración a través de los siguientes medios:</p>
-    <div class="contact-info">
-        <p><strong>Dirección:</strong> Calle 123 #45-67, Montería, Córdoba</p>
-        <p><strong>Teléfono:</strong> 310 000 0000</p>
-        <p><strong>Email:</strong> administracion@gloria3.com</p>
-        <p><strong>Horario de Atención:</strong> Lunes a Viernes de 8:00 am a 12:00 pm y de 2:00 pm a 6:00 pm</p>
-    </div>
-</main>
-<footer>
-    <p>&copy; 2025 GLORIA III - Administración</p>
-</footer>
-
-<script>
-// Verificar sesión
-let rol = localStorage.getItem('rolUsuario');
-if (!rol) {
-    window.location.href = 'login.html';
-}
-
-// Cerrar sesión
-function cerrarSesion() {
-    localStorage.removeItem('rolUsuario');
-    window.location.href = 'login.html';
-}
-</script>
+    <header>
+        <img src="assets/logo.png" alt="Logo Gloria III" class="logo">
+        <nav>
+            <a href="index.html"><img src="assets/icon-home.svg" class="icon"> Inicio</a>
+            <a href="propietarios.html"><img src="assets/icon-user.svg" class="icon"> Propietarios</a>
+            <a href="vehiculos.html"><img src="assets/icon-car.svg" class="icon"> Vehículos</a>
+            <a href="pagos.html"><img src="assets/icon-pay.svg" class="icon"> Pagos</a>
+            <a href="contacto.html"><img src="assets/icon-contact.svg" class="icon"> Contacto</a>
+            <a href="login.html"><img src="assets/icon-login.svg" class="icon"> Login</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Contacto</h1>
+        <p>Contenido de la página Contacto.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 Gloria III - Todos los derechos reservados</p>
+    </footer>
 </body>
 </html>
